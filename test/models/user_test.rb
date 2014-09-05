@@ -8,6 +8,6 @@ class UserTest < ActiveSupport::TestCase
 
   test "uploads an avatar" do
     user = User.create!(avatar: fixture_file_upload('/files/tapir.jpg', 'image/jpg'))
-    assert File.exists?(user.avatar.file.path)
+    assert File.exists?(user.reload.avatar.file.path)
   end
 end
