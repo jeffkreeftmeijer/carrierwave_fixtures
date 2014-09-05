@@ -12,4 +12,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   include ActionDispatch::TestProcess
+
+  CarrierWave.configure do |config|
+    config.root Rails.root.join('test/fixtures/files')
+  end
 end
