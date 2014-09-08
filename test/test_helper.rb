@@ -9,10 +9,12 @@ class CarrierWave::Mount::Mounter
 end
 
 class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   include ActionDispatch::TestProcess
 
   fixtures :all
 
+  # Add more helper methods to be used by all tests here...
   CarrierWave.root = Rails.root.join('test/fixtures/files')
 
   def after_teardown
