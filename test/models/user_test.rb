@@ -10,4 +10,10 @@ class UserTest < ActiveSupport::TestCase
     user = User.create!(avatar: fixture_file_upload('/files/tapir.jpg', 'image/jpg'))
     assert File.exists?(user.reload.avatar.file.path)
   end
+
+  test "removes an avatar" do
+    user = User.create!(avatar: fixture_file_upload('/files/tapir.jpg', 'image/jpg'))
+    user.avatar.remove!
+    assert !File.exists?(user.reload.avatar.file.path)
+  end
 end
