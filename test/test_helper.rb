@@ -9,11 +9,13 @@ class CarrierWave::Mount::Mounter
 end
 
 class ActiveSupport::TestCase
-  fixtures :all
-
   include ActionDispatch::TestProcess
 
-  CarrierWave.configure do |config|
-    config.root Rails.root.join('test/fixtures/files')
+  fixtures :all
+
+  CarrierWave.root = Rails.root.join('test/fixtures/files')
+
+  def after_teardown
+    CarrierWave.clean_cached_files!(0)
   end
 end
