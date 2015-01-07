@@ -38,4 +38,4 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'carrierwave'
+gem 'carrierwave', git: 'git@github.com:carrierwaveuploader/carrierwave.git'
